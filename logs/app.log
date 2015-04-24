@@ -1,0 +1,242 @@
+2015-kwi-24 21:31:56.069 [main] DEBUG DbHelper.java:51 - Loading properties
+2015-kwi-24 21:31:56.073 [main] DEBUG DbHelper.java:62 - Creating the data source
+2015-kwi-24 21:31:56.089 [main] DEBUG DbHelper.java:69 - Executing Flyway (database migration)
+2015-kwi-24 21:31:56.697 [main] DEBUG ApacheCommonsLog.java:39 - Jdbc Url: jdbc:h2:data/db
+2015-kwi-24 21:31:56.698 [main] DEBUG ApacheCommonsLog.java:39 - Database: H2 1.3
+2015-kwi-24 21:31:56.703 [main] DEBUG ApacheCommonsLog.java:39 - DDL Transactions Supported: false
+2015-kwi-24 21:31:56.714 [main] DEBUG ApacheCommonsLog.java:39 - Schema: PUBLIC
+2015-kwi-24 21:31:56.733 [main] DEBUG ApacheCommonsLog.java:39 - Schema "PUBLIC" already exists. Skipping schema creation.
+2015-kwi-24 21:31:56.751 [main] DEBUG ApacheCommonsLog.java:39 - Jdbc Url: jdbc:h2:data/db
+2015-kwi-24 21:31:56.751 [main] DEBUG ApacheCommonsLog.java:39 - Database: H2 1.3
+2015-kwi-24 21:31:56.759 [main] INFO ApacheCommonsLog.java:43 - Creating Metadata table: "PUBLIC"."schema_version"
+2015-kwi-24 21:31:56.776 [main] DEBUG ApacheCommonsLog.java:39 - Found statement at line 17: CREATE TABLE "PUBLIC"."schema_version" (
+    "version_rank" INT NOT NULL,
+    "installed_rank" INT NOT NULL,
+    "version" VARCHAR(50) NOT NULL,
+    "description" VARCHAR(200) NOT NULL,
+    "type" VARCHAR(20) NOT NULL,
+    "script" VARCHAR(1000) NOT NULL,
+    "checksum" INT,
+    "installed_by" VARCHAR(100) NOT NULL,
+    "installed_on" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "execution_time" INT NOT NULL,
+    "success" BOOLEAN NOT NULL
+)
+2015-kwi-24 21:31:56.777 [main] DEBUG ApacheCommonsLog.java:39 - Found statement at line 30: ALTER TABLE "PUBLIC"."schema_version" ADD CONSTRAINT "schema_version_pk" PRIMARY KEY ("version")
+2015-kwi-24 21:31:56.778 [main] DEBUG ApacheCommonsLog.java:39 - Found statement at line 32: CREATE INDEX "PUBLIC"."schema_version_vr_idx" ON "PUBLIC"."schema_version" ("version_rank")
+2015-kwi-24 21:31:56.779 [main] DEBUG ApacheCommonsLog.java:39 - Found statement at line 33: CREATE INDEX "PUBLIC"."schema_version_ir_idx" ON "PUBLIC"."schema_version" ("installed_rank")
+2015-kwi-24 21:31:56.780 [main] DEBUG ApacheCommonsLog.java:39 - Found statement at line 34: CREATE INDEX "PUBLIC"."schema_version_s_idx" ON "PUBLIC"."schema_version" ("success")
+2015-kwi-24 21:31:56.783 [main] DEBUG ApacheCommonsLog.java:39 - Executing SQL: CREATE TABLE "PUBLIC"."schema_version" (
+    "version_rank" INT NOT NULL,
+    "installed_rank" INT NOT NULL,
+    "version" VARCHAR(50) NOT NULL,
+    "description" VARCHAR(200) NOT NULL,
+    "type" VARCHAR(20) NOT NULL,
+    "script" VARCHAR(1000) NOT NULL,
+    "checksum" INT,
+    "installed_by" VARCHAR(100) NOT NULL,
+    "installed_on" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "execution_time" INT NOT NULL,
+    "success" BOOLEAN NOT NULL
+)
+2015-kwi-24 21:31:56.786 [main] DEBUG ApacheCommonsLog.java:39 - Executing SQL: ALTER TABLE "PUBLIC"."schema_version" ADD CONSTRAINT "schema_version_pk" PRIMARY KEY ("version")
+2015-kwi-24 21:31:56.788 [main] DEBUG ApacheCommonsLog.java:39 - Executing SQL: CREATE INDEX "PUBLIC"."schema_version_vr_idx" ON "PUBLIC"."schema_version" ("version_rank")
+2015-kwi-24 21:31:56.789 [main] DEBUG ApacheCommonsLog.java:39 - Executing SQL: CREATE INDEX "PUBLIC"."schema_version_ir_idx" ON "PUBLIC"."schema_version" ("installed_rank")
+2015-kwi-24 21:31:56.791 [main] DEBUG ApacheCommonsLog.java:39 - Executing SQL: CREATE INDEX "PUBLIC"."schema_version_s_idx" ON "PUBLIC"."schema_version" ("success")
+2015-kwi-24 21:31:56.792 [main] DEBUG ApacheCommonsLog.java:39 - Metadata table "PUBLIC"."schema_version" created.
+2015-kwi-24 21:31:56.792 [main] DEBUG ApacheCommonsLog.java:39 - Locking table "PUBLIC"."schema_version"...
+2015-kwi-24 21:31:56.793 [main] DEBUG ApacheCommonsLog.java:39 - Lock acquired for table "PUBLIC"."schema_version"
+2015-kwi-24 21:31:56.800 [main] DEBUG ApacheCommonsLog.java:39 - Spring Jdbc available: false
+2015-kwi-24 21:31:56.804 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for classpath resources at 'db/migration' (Prefix: 'V', Suffix: '.sql')
+2015-kwi-24 21:31:56.805 [main] DEBUG ApacheCommonsLog.java:39 - Scanning URL: file:/Users/oskarmarszalek/dev/java-chat/target/classes/db/migration
+2015-kwi-24 21:31:56.805 [main] DEBUG ApacheCommonsLog.java:39 - JBoss VFS v2 available: false
+2015-kwi-24 21:31:56.810 [main] DEBUG ApacheCommonsLog.java:39 - Scanning starting at classpath root in filesystem: /Users/oskarmarszalek/dev/java-chat/target/classes/
+2015-kwi-24 21:31:56.810 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for resources in path: /Users/oskarmarszalek/dev/java-chat/target/classes/db/migration (db/migration)
+2015-kwi-24 21:31:56.812 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V1__initial_db.sql
+2015-kwi-24 21:31:56.812 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V2__update_table.sql
+2015-kwi-24 21:31:56.813 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V3__add_samples.sql
+2015-kwi-24 21:31:56.820 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for classes at 'db/migration' (Implementing: 'com.googlecode.flyway.core.api.migration.jdbc.JdbcMigration')
+2015-kwi-24 21:31:56.820 [main] DEBUG ApacheCommonsLog.java:39 - Scanning URL: file:/Users/oskarmarszalek/dev/java-chat/target/classes/db/migration
+2015-kwi-24 21:31:56.821 [main] DEBUG ApacheCommonsLog.java:39 - Scanning starting at classpath root in filesystem: /Users/oskarmarszalek/dev/java-chat/target/classes/
+2015-kwi-24 21:31:56.821 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for resources in path: /Users/oskarmarszalek/dev/java-chat/target/classes/db/migration (db/migration)
+2015-kwi-24 21:31:56.823 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V1__initial_db.sql (filename: V1__initial_db.sql)
+2015-kwi-24 21:31:56.823 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V2__update_table.sql (filename: V2__update_table.sql)
+2015-kwi-24 21:31:56.823 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V3__add_samples.sql (filename: V3__add_samples.sql)
+2015-kwi-24 21:31:56.838 [main] DEBUG ApacheCommonsLog.java:39 - No upgrade to the Flyway 2.0 format necessary for metadata table "PUBLIC"."schema_version"
+2015-kwi-24 21:31:56.851 [main] DEBUG ApacheCommonsLog.java:39 - No metadata table upgrade to the Flyway 2.0.2 format necessary
+2015-kwi-24 21:31:56.857 [main] DEBUG ApacheCommonsLog.java:39 - No metadata table upgrade to the Flyway 2.1 format necessary
+2015-kwi-24 21:31:56.863 [main] INFO ApacheCommonsLog.java:43 - Current version of schema "PUBLIC": << Empty Schema >>
+2015-kwi-24 21:31:56.864 [main] INFO ApacheCommonsLog.java:43 - Migrating schema "PUBLIC" to version 1
+2015-kwi-24 21:31:56.867 [main] DEBUG ApacheCommonsLog.java:39 - Found statement at line 2: CREATE TABLE contacts (
+  id bigint auto_increment NOT NULL, 
+  name varchar(128) NOT NULL,
+  PRIMARY KEY(id)
+)
+2015-kwi-24 21:31:56.868 [main] DEBUG ApacheCommonsLog.java:39 - Executing SQL: CREATE TABLE contacts (
+  id bigint auto_increment NOT NULL, 
+  name varchar(128) NOT NULL,
+  PRIMARY KEY(id)
+)
+2015-kwi-24 21:31:56.873 [main] DEBUG ApacheCommonsLog.java:39 - Successfully completed and committed migration of schema "PUBLIC" to version 1
+2015-kwi-24 21:31:56.889 [main] DEBUG ApacheCommonsLog.java:39 - MetaData table "PUBLIC"."schema_version" successfully updated to reflect changes
+2015-kwi-24 21:31:56.893 [main] DEBUG ApacheCommonsLog.java:39 - Locking table "PUBLIC"."schema_version"...
+2015-kwi-24 21:31:56.894 [main] DEBUG ApacheCommonsLog.java:39 - Lock acquired for table "PUBLIC"."schema_version"
+2015-kwi-24 21:31:56.903 [main] INFO ApacheCommonsLog.java:43 - Migrating schema "PUBLIC" to version 2
+2015-kwi-24 21:31:56.905 [main] DEBUG ApacheCommonsLog.java:39 - Found statement at line 2: ALTER TABLE contacts ADD COLUMN contacts varchar(255)
+2015-kwi-24 21:31:56.909 [main] DEBUG ApacheCommonsLog.java:39 - Executing SQL: ALTER TABLE contacts ADD COLUMN contacts varchar(255)
+2015-kwi-24 21:31:56.926 [main] DEBUG ApacheCommonsLog.java:39 - Successfully completed and committed migration of schema "PUBLIC" to version 2
+2015-kwi-24 21:31:56.934 [main] DEBUG ApacheCommonsLog.java:39 - MetaData table "PUBLIC"."schema_version" successfully updated to reflect changes
+2015-kwi-24 21:31:56.937 [main] DEBUG ApacheCommonsLog.java:39 - Locking table "PUBLIC"."schema_version"...
+2015-kwi-24 21:31:56.938 [main] DEBUG ApacheCommonsLog.java:39 - Lock acquired for table "PUBLIC"."schema_version"
+2015-kwi-24 21:31:56.950 [main] INFO ApacheCommonsLog.java:43 - Migrating schema "PUBLIC" to version 3
+2015-kwi-24 21:31:56.952 [main] DEBUG ApacheCommonsLog.java:39 - Found statement at line 2: INSERT INTO contacts (name, contacts) VALUES ('Albert Attard', 'albert@javacreed.com')
+2015-kwi-24 21:31:56.953 [main] DEBUG ApacheCommonsLog.java:39 - Found statement at line 3: INSERT INTO contacts (name, contacts) VALUES ('Mary White', 'mary@javacreed.com')
+2015-kwi-24 21:31:56.955 [main] DEBUG ApacheCommonsLog.java:39 - Found statement at line 4: INSERT INTO contacts (name, contacts) VALUES ('Joe Borg', 'joe@javacreed.com')
+2015-kwi-24 21:31:56.955 [main] DEBUG ApacheCommonsLog.java:39 - Executing SQL: INSERT INTO contacts (name, contacts) VALUES ('Albert Attard', 'albert@javacreed.com')
+2015-kwi-24 21:31:56.957 [main] DEBUG ApacheCommonsLog.java:39 - Executing SQL: INSERT INTO contacts (name, contacts) VALUES ('Mary White', 'mary@javacreed.com')
+2015-kwi-24 21:31:56.958 [main] DEBUG ApacheCommonsLog.java:39 - Executing SQL: INSERT INTO contacts (name, contacts) VALUES ('Joe Borg', 'joe@javacreed.com')
+2015-kwi-24 21:31:56.960 [main] DEBUG ApacheCommonsLog.java:39 - Successfully completed and committed migration of schema "PUBLIC" to version 3
+2015-kwi-24 21:31:56.964 [main] DEBUG ApacheCommonsLog.java:39 - MetaData table "PUBLIC"."schema_version" successfully updated to reflect changes
+2015-kwi-24 21:31:56.967 [main] DEBUG ApacheCommonsLog.java:39 - Locking table "PUBLIC"."schema_version"...
+2015-kwi-24 21:31:56.968 [main] DEBUG ApacheCommonsLog.java:39 - Lock acquired for table "PUBLIC"."schema_version"
+2015-kwi-24 21:31:56.977 [main] INFO ApacheCommonsLog.java:43 - Successfully applied 3 migrations to schema "PUBLIC" (execution time 00:00.220s).
+2015-kwi-24 21:31:57.627 [AWT-EventQueue-0] DEBUG Main.java:20 - Starting application
+2015-kwi-24 21:31:57.881 [SwingWorker-pool-1-thread-1] DEBUG ContactsHelper.java:24 - Loading contacts
+2015-kwi-24 21:31:57.886 [SwingWorker-pool-1-thread-1] DEBUG ContactsHelper.java:41 - Loaded 3 contacts
+2015-kwi-24 21:32:01.515 [Thread-2] DEBUG DbHelper.java:37 - Closing the data source
+2015-kwi-24 21:33:00.951 [main] DEBUG DbHelper.java:51 - Loading properties
+2015-kwi-24 21:33:00.954 [main] DEBUG DbHelper.java:62 - Creating the data source
+2015-kwi-24 21:33:00.970 [main] DEBUG DbHelper.java:69 - Executing Flyway (database migration)
+2015-kwi-24 21:33:01.641 [main] DEBUG ApacheCommonsLog.java:39 - Jdbc Url: jdbc:h2:data/db
+2015-kwi-24 21:33:01.642 [main] DEBUG ApacheCommonsLog.java:39 - Database: H2 1.3
+2015-kwi-24 21:33:01.646 [main] DEBUG ApacheCommonsLog.java:39 - DDL Transactions Supported: false
+2015-kwi-24 21:33:01.656 [main] DEBUG ApacheCommonsLog.java:39 - Schema: PUBLIC
+2015-kwi-24 21:33:01.674 [main] DEBUG ApacheCommonsLog.java:39 - Schema "PUBLIC" already exists. Skipping schema creation.
+2015-kwi-24 21:33:01.696 [main] DEBUG ApacheCommonsLog.java:39 - No upgrade to the Flyway 2.0 format necessary for metadata table "PUBLIC"."schema_version"
+2015-kwi-24 21:33:01.718 [main] DEBUG ApacheCommonsLog.java:39 - No metadata table upgrade to the Flyway 2.0.2 format necessary
+2015-kwi-24 21:33:01.724 [main] DEBUG ApacheCommonsLog.java:39 - No metadata table upgrade to the Flyway 2.1 format necessary
+2015-kwi-24 21:33:01.751 [main] DEBUG ApacheCommonsLog.java:39 - Jdbc Url: jdbc:h2:data/db
+2015-kwi-24 21:33:01.751 [main] DEBUG ApacheCommonsLog.java:39 - Database: H2 1.3
+2015-kwi-24 21:33:01.760 [main] DEBUG ApacheCommonsLog.java:39 - Locking table "PUBLIC"."schema_version"...
+2015-kwi-24 21:33:01.761 [main] DEBUG ApacheCommonsLog.java:39 - Lock acquired for table "PUBLIC"."schema_version"
+2015-kwi-24 21:33:01.768 [main] DEBUG ApacheCommonsLog.java:39 - Spring Jdbc available: false
+2015-kwi-24 21:33:01.774 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for classpath resources at 'db/migration' (Prefix: 'V', Suffix: '.sql')
+2015-kwi-24 21:33:01.775 [main] DEBUG ApacheCommonsLog.java:39 - Scanning URL: file:/Users/oskarmarszalek/dev/java-chat/target/classes/db/migration
+2015-kwi-24 21:33:01.776 [main] DEBUG ApacheCommonsLog.java:39 - JBoss VFS v2 available: false
+2015-kwi-24 21:33:01.778 [main] DEBUG ApacheCommonsLog.java:39 - Scanning starting at classpath root in filesystem: /Users/oskarmarszalek/dev/java-chat/target/classes/
+2015-kwi-24 21:33:01.779 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for resources in path: /Users/oskarmarszalek/dev/java-chat/target/classes/db/migration (db/migration)
+2015-kwi-24 21:33:01.781 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V1__initial_db.sql
+2015-kwi-24 21:33:01.781 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V2__update_table.sql
+2015-kwi-24 21:33:01.783 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V3__add_samples.sql
+2015-kwi-24 21:33:01.791 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for classes at 'db/migration' (Implementing: 'com.googlecode.flyway.core.api.migration.jdbc.JdbcMigration')
+2015-kwi-24 21:33:01.792 [main] DEBUG ApacheCommonsLog.java:39 - Scanning URL: file:/Users/oskarmarszalek/dev/java-chat/target/classes/db/migration
+2015-kwi-24 21:33:01.792 [main] DEBUG ApacheCommonsLog.java:39 - Scanning starting at classpath root in filesystem: /Users/oskarmarszalek/dev/java-chat/target/classes/
+2015-kwi-24 21:33:01.792 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for resources in path: /Users/oskarmarszalek/dev/java-chat/target/classes/db/migration (db/migration)
+2015-kwi-24 21:33:01.793 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V1__initial_db.sql (filename: V1__initial_db.sql)
+2015-kwi-24 21:33:01.794 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V2__update_table.sql (filename: V2__update_table.sql)
+2015-kwi-24 21:33:01.794 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V3__add_samples.sql (filename: V3__add_samples.sql)
+2015-kwi-24 21:33:01.808 [main] INFO ApacheCommonsLog.java:43 - Current version of schema "PUBLIC": 3
+2015-kwi-24 21:33:01.808 [main] INFO ApacheCommonsLog.java:43 - Schema "PUBLIC" is up to date. No migration necessary.
+2015-kwi-24 21:33:02.095 [AWT-EventQueue-0] DEBUG Main.java:20 - Starting application
+2015-kwi-24 21:33:02.351 [SwingWorker-pool-1-thread-1] DEBUG ContactsHelper.java:24 - Loading contacts
+2015-kwi-24 21:33:02.355 [SwingWorker-pool-1-thread-1] DEBUG ContactsHelper.java:41 - Loaded 3 contacts
+2015-kwi-24 21:33:22.770 [AWT-EventQueue-0] DEBUG Contact.java:77 - Updating existing contact: [1] Agnieszka Zych
+2015-kwi-24 21:33:22.776 [SwingWorker-pool-1-thread-2] DEBUG ContactsHelper.java:24 - Loading contacts
+2015-kwi-24 21:33:22.777 [SwingWorker-pool-1-thread-2] DEBUG ContactsHelper.java:41 - Loaded 3 contacts
+2015-kwi-24 21:33:26.321 [AWT-EventQueue-0] DEBUG Contact.java:24 - Deleting contact: [3] Joe Borg
+2015-kwi-24 21:33:26.323 [SwingWorker-pool-1-thread-3] DEBUG ContactsHelper.java:24 - Loading contacts
+2015-kwi-24 21:33:26.323 [SwingWorker-pool-1-thread-3] DEBUG ContactsHelper.java:41 - Loaded 2 contacts
+2015-kwi-24 21:33:39.590 [AWT-EventQueue-0] DEBUG Contact.java:77 - Updating existing contact: [2] Oskar Marszałek
+2015-kwi-24 21:33:39.592 [SwingWorker-pool-1-thread-4] DEBUG ContactsHelper.java:24 - Loading contacts
+2015-kwi-24 21:33:39.592 [SwingWorker-pool-1-thread-4] DEBUG ContactsHelper.java:41 - Loaded 2 contacts
+2015-kwi-24 21:33:49.706 [Thread-2] DEBUG DbHelper.java:37 - Closing the data source
+2015-kwi-24 21:37:33.776 [main] DEBUG ApacheCommonsLog.java:39 - Jdbc Url: jdbc:h2:data/db
+2015-kwi-24 21:37:33.779 [main] DEBUG ApacheCommonsLog.java:39 - Database: H2 1.3
+2015-kwi-24 21:37:33.785 [main] DEBUG ApacheCommonsLog.java:39 - DDL Transactions Supported: false
+2015-kwi-24 21:37:33.791 [main] DEBUG ApacheCommonsLog.java:39 - Schema: PUBLIC
+2015-kwi-24 21:37:33.802 [main] DEBUG ApacheCommonsLog.java:39 - Schema "PUBLIC" already exists. Skipping schema creation.
+2015-kwi-24 21:37:33.813 [main] DEBUG ApacheCommonsLog.java:39 - No upgrade to the Flyway 2.0 format necessary for metadata table "PUBLIC"."schema_version"
+2015-kwi-24 21:37:33.844 [main] DEBUG ApacheCommonsLog.java:39 - No metadata table upgrade to the Flyway 2.0.2 format necessary
+2015-kwi-24 21:37:33.850 [main] DEBUG ApacheCommonsLog.java:39 - No metadata table upgrade to the Flyway 2.1 format necessary
+2015-kwi-24 21:37:33.870 [main] DEBUG ApacheCommonsLog.java:39 - Jdbc Url: jdbc:h2:data/db
+2015-kwi-24 21:37:33.870 [main] DEBUG ApacheCommonsLog.java:39 - Database: H2 1.3
+2015-kwi-24 21:37:33.878 [main] DEBUG ApacheCommonsLog.java:39 - Locking table "PUBLIC"."schema_version"...
+2015-kwi-24 21:37:33.879 [main] DEBUG ApacheCommonsLog.java:39 - Lock acquired for table "PUBLIC"."schema_version"
+2015-kwi-24 21:37:33.886 [main] DEBUG ApacheCommonsLog.java:39 - Spring Jdbc available: false
+2015-kwi-24 21:37:33.888 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for classpath resources at 'db/migration' (Prefix: 'V', Suffix: '.sql')
+2015-kwi-24 21:37:33.890 [main] DEBUG ApacheCommonsLog.java:39 - Scanning URL: file:/Users/oskarmarszalek/dev/java-chat/target/classes/db/migration
+2015-kwi-24 21:37:33.890 [main] DEBUG ApacheCommonsLog.java:39 - JBoss VFS v2 available: false
+2015-kwi-24 21:37:33.895 [main] DEBUG ApacheCommonsLog.java:39 - Scanning starting at classpath root in filesystem: /Users/oskarmarszalek/dev/java-chat/target/classes/
+2015-kwi-24 21:37:33.895 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for resources in path: /Users/oskarmarszalek/dev/java-chat/target/classes/db/migration (db/migration)
+2015-kwi-24 21:37:33.897 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V1__initial_db.sql
+2015-kwi-24 21:37:33.897 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V2__update_table.sql
+2015-kwi-24 21:37:33.898 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V3__add_samples.sql
+2015-kwi-24 21:37:33.904 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for classes at 'db/migration' (Implementing: 'com.googlecode.flyway.core.api.migration.jdbc.JdbcMigration')
+2015-kwi-24 21:37:33.905 [main] DEBUG ApacheCommonsLog.java:39 - Scanning URL: file:/Users/oskarmarszalek/dev/java-chat/target/classes/db/migration
+2015-kwi-24 21:37:33.905 [main] DEBUG ApacheCommonsLog.java:39 - Scanning starting at classpath root in filesystem: /Users/oskarmarszalek/dev/java-chat/target/classes/
+2015-kwi-24 21:37:33.905 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for resources in path: /Users/oskarmarszalek/dev/java-chat/target/classes/db/migration (db/migration)
+2015-kwi-24 21:37:33.906 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V1__initial_db.sql (filename: V1__initial_db.sql)
+2015-kwi-24 21:37:33.907 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V2__update_table.sql (filename: V2__update_table.sql)
+2015-kwi-24 21:37:33.907 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V3__add_samples.sql (filename: V3__add_samples.sql)
+2015-kwi-24 21:37:33.923 [main] INFO ApacheCommonsLog.java:43 - Current version of schema "PUBLIC": 3
+2015-kwi-24 21:37:33.924 [main] INFO ApacheCommonsLog.java:43 - Schema "PUBLIC" is up to date. No migration necessary.
+2015-kwi-24 21:43:46.995 [main] DEBUG ApacheCommonsLog.java:39 - Jdbc Url: jdbc:h2:data/db
+2015-kwi-24 21:43:46.997 [main] DEBUG ApacheCommonsLog.java:39 - Database: H2 1.3
+2015-kwi-24 21:43:47.005 [main] DEBUG ApacheCommonsLog.java:39 - DDL Transactions Supported: false
+2015-kwi-24 21:43:47.014 [main] DEBUG ApacheCommonsLog.java:39 - Schema: PUBLIC
+2015-kwi-24 21:43:47.026 [main] DEBUG ApacheCommonsLog.java:39 - Schema "PUBLIC" already exists. Skipping schema creation.
+2015-kwi-24 21:43:47.038 [main] DEBUG ApacheCommonsLog.java:39 - No upgrade to the Flyway 2.0 format necessary for metadata table "PUBLIC"."schema_version"
+2015-kwi-24 21:43:47.053 [main] DEBUG ApacheCommonsLog.java:39 - No metadata table upgrade to the Flyway 2.0.2 format necessary
+2015-kwi-24 21:43:47.068 [main] DEBUG ApacheCommonsLog.java:39 - No metadata table upgrade to the Flyway 2.1 format necessary
+2015-kwi-24 21:43:47.107 [main] DEBUG ApacheCommonsLog.java:39 - Jdbc Url: jdbc:h2:data/db
+2015-kwi-24 21:43:47.107 [main] DEBUG ApacheCommonsLog.java:39 - Database: H2 1.3
+2015-kwi-24 21:43:47.113 [main] DEBUG ApacheCommonsLog.java:39 - Locking table "PUBLIC"."schema_version"...
+2015-kwi-24 21:43:47.114 [main] DEBUG ApacheCommonsLog.java:39 - Lock acquired for table "PUBLIC"."schema_version"
+2015-kwi-24 21:43:47.120 [main] DEBUG ApacheCommonsLog.java:39 - Spring Jdbc available: false
+2015-kwi-24 21:43:47.123 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for classpath resources at 'db/migration' (Prefix: 'V', Suffix: '.sql')
+2015-kwi-24 21:43:47.124 [main] DEBUG ApacheCommonsLog.java:39 - Scanning URL: file:/Users/oskarmarszalek/dev/java-chat/target/classes/db/migration
+2015-kwi-24 21:43:47.125 [main] DEBUG ApacheCommonsLog.java:39 - JBoss VFS v2 available: false
+2015-kwi-24 21:43:47.131 [main] DEBUG ApacheCommonsLog.java:39 - Scanning starting at classpath root in filesystem: /Users/oskarmarszalek/dev/java-chat/target/classes/
+2015-kwi-24 21:43:47.132 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for resources in path: /Users/oskarmarszalek/dev/java-chat/target/classes/db/migration (db/migration)
+2015-kwi-24 21:43:47.134 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V1__initial_db.sql
+2015-kwi-24 21:43:47.135 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V2__update_table.sql
+2015-kwi-24 21:43:47.135 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V3__add_samples.sql
+2015-kwi-24 21:43:47.141 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for classes at 'db/migration' (Implementing: 'com.googlecode.flyway.core.api.migration.jdbc.JdbcMigration')
+2015-kwi-24 21:43:47.142 [main] DEBUG ApacheCommonsLog.java:39 - Scanning URL: file:/Users/oskarmarszalek/dev/java-chat/target/classes/db/migration
+2015-kwi-24 21:43:47.142 [main] DEBUG ApacheCommonsLog.java:39 - Scanning starting at classpath root in filesystem: /Users/oskarmarszalek/dev/java-chat/target/classes/
+2015-kwi-24 21:43:47.142 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for resources in path: /Users/oskarmarszalek/dev/java-chat/target/classes/db/migration (db/migration)
+2015-kwi-24 21:43:47.143 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V1__initial_db.sql (filename: V1__initial_db.sql)
+2015-kwi-24 21:43:47.144 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V2__update_table.sql (filename: V2__update_table.sql)
+2015-kwi-24 21:43:47.144 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V3__add_samples.sql (filename: V3__add_samples.sql)
+2015-kwi-24 21:43:47.156 [main] INFO ApacheCommonsLog.java:43 - Current version of schema "PUBLIC": 3
+2015-kwi-24 21:43:47.156 [main] INFO ApacheCommonsLog.java:43 - Schema "PUBLIC" is up to date. No migration necessary.
+2015-kwi-24 21:46:00.401 [main] DEBUG ApacheCommonsLog.java:39 - Jdbc Url: jdbc:h2:data/db
+2015-kwi-24 21:46:00.403 [main] DEBUG ApacheCommonsLog.java:39 - Database: H2 1.3
+2015-kwi-24 21:46:00.410 [main] DEBUG ApacheCommonsLog.java:39 - DDL Transactions Supported: false
+2015-kwi-24 21:46:00.417 [main] DEBUG ApacheCommonsLog.java:39 - Schema: PUBLIC
+2015-kwi-24 21:46:00.429 [main] DEBUG ApacheCommonsLog.java:39 - Schema "PUBLIC" already exists. Skipping schema creation.
+2015-kwi-24 21:46:00.439 [main] DEBUG ApacheCommonsLog.java:39 - No upgrade to the Flyway 2.0 format necessary for metadata table "PUBLIC"."schema_version"
+2015-kwi-24 21:46:00.457 [main] DEBUG ApacheCommonsLog.java:39 - No metadata table upgrade to the Flyway 2.0.2 format necessary
+2015-kwi-24 21:46:00.463 [main] DEBUG ApacheCommonsLog.java:39 - No metadata table upgrade to the Flyway 2.1 format necessary
+2015-kwi-24 21:46:00.482 [main] DEBUG ApacheCommonsLog.java:39 - Jdbc Url: jdbc:h2:data/db
+2015-kwi-24 21:46:00.483 [main] DEBUG ApacheCommonsLog.java:39 - Database: H2 1.3
+2015-kwi-24 21:46:00.490 [main] DEBUG ApacheCommonsLog.java:39 - Locking table "PUBLIC"."schema_version"...
+2015-kwi-24 21:46:00.491 [main] DEBUG ApacheCommonsLog.java:39 - Lock acquired for table "PUBLIC"."schema_version"
+2015-kwi-24 21:46:00.500 [main] DEBUG ApacheCommonsLog.java:39 - Spring Jdbc available: false
+2015-kwi-24 21:46:00.505 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for classpath resources at 'db/migration' (Prefix: 'V', Suffix: '.sql')
+2015-kwi-24 21:46:00.510 [main] DEBUG ApacheCommonsLog.java:39 - Scanning URL: file:/Users/oskarmarszalek/dev/java-chat/target/classes/db/migration
+2015-kwi-24 21:46:00.511 [main] DEBUG ApacheCommonsLog.java:39 - JBoss VFS v2 available: false
+2015-kwi-24 21:46:00.518 [main] DEBUG ApacheCommonsLog.java:39 - Scanning starting at classpath root in filesystem: /Users/oskarmarszalek/dev/java-chat/target/classes/
+2015-kwi-24 21:46:00.520 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for resources in path: /Users/oskarmarszalek/dev/java-chat/target/classes/db/migration (db/migration)
+2015-kwi-24 21:46:00.523 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V1__initial_db.sql
+2015-kwi-24 21:46:00.525 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V2__update_table.sql
+2015-kwi-24 21:46:00.525 [main] DEBUG ApacheCommonsLog.java:39 - Found resource: db/migration/V3__add_samples.sql
+2015-kwi-24 21:46:00.534 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for classes at 'db/migration' (Implementing: 'com.googlecode.flyway.core.api.migration.jdbc.JdbcMigration')
+2015-kwi-24 21:46:00.534 [main] DEBUG ApacheCommonsLog.java:39 - Scanning URL: file:/Users/oskarmarszalek/dev/java-chat/target/classes/db/migration
+2015-kwi-24 21:46:00.535 [main] DEBUG ApacheCommonsLog.java:39 - Scanning starting at classpath root in filesystem: /Users/oskarmarszalek/dev/java-chat/target/classes/
+2015-kwi-24 21:46:00.535 [main] DEBUG ApacheCommonsLog.java:39 - Scanning for resources in path: /Users/oskarmarszalek/dev/java-chat/target/classes/db/migration (db/migration)
+2015-kwi-24 21:46:00.536 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V1__initial_db.sql (filename: V1__initial_db.sql)
+2015-kwi-24 21:46:00.537 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V2__update_table.sql (filename: V2__update_table.sql)
+2015-kwi-24 21:46:00.537 [main] DEBUG ApacheCommonsLog.java:39 - Filtering out resource: db/migration/V3__add_samples.sql (filename: V3__add_samples.sql)
+2015-kwi-24 21:46:00.553 [main] INFO ApacheCommonsLog.java:43 - Current version of schema "PUBLIC": 3
+2015-kwi-24 21:46:00.553 [main] INFO ApacheCommonsLog.java:43 - Schema "PUBLIC" is up to date. No migration necessary.
